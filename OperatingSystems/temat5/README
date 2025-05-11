@@ -1,0 +1,41 @@
+========================================================================
+Autor: Jan Krzemień,                               Krakow, 10.05.2023
+========================================================================
+
+* Zawartosc:
+============
+
+Katalog programy zawiera dwa programy bedace rozwiazaniem cwiczenia 6:
+--------------------------------------------------------------------
+
+I.  Program powielacz tworzy n procesów potomnych, gdzie n jest podane
+    przez argumenty wywołania programu, w każdym procesie uruchamiany jest program
+    wzajemne_wykluczanie, program wzajemne wykluczanie ma m sekcji krytycznych
+    gdzie m jest podane przez argument wywołania programu, w swojej sekcji
+    krytycznej pobiera z pliku numer, zwiększa go o 1 i zapisuje
+    spowrotem do pliku, całość jest synchronizowana przez semafory binarne.
+    Program sklada sie z czterech modulow:
+    1) powielacz.c - program tworzacy n procesów potomnych, znajduje sie tam funkcja atexit 
+    2) wzajemne_wykluczanie.c  - program odczytuje dane z pliku i zapisuje w potoku.
+    3) obsluga_semaforow.c, obsluga_semaforow.h - moduł biblioteki zawierający funkcji do obsługi semaforów.
+    4) numer.txt - plik w którym zapisany jest numer zwiększany potem przez procesy potomne
+
+------------------------------------------------------------------------
+
+* Jak uruchomic programy:
+=========================
+
+Katalog zawiera program Makefile do kompilacji, linkowania
+i uruchamiania powyzszych programow, a takze czyszczenia katalogu 
+i jego archiwizacji.
+
+-> Aby uruchomic program, nalezy wykonac komende:
+       make run1
+
+-> Aby wyczyscic zawartosc katalogu (usunac zbedne pliki), nalezy wykonac:
+       make clean
+
+-> W celu archiwizacji oraz kompresji katalogu nalezy wykonac:
+       make tar
+
+========================================================================

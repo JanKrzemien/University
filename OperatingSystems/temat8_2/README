@@ -1,0 +1,38 @@
+========================================================================
+Autor: Jan Krzemień,                               Krakow, 11.06.2023
+========================================================================
+
+* Zawartosc:
+============
+
+Katalog programy zawiera program bedacy rozwiazaniem cwiczenia 9:
+--------------------------------------------------------------------
+
+I.  Program main implementuje zadanie wzajemnego wykluczania dla watkow
+    za pomoca algorytmu piekarni.
+    sprawdzenie poprawnosci jest przeprowadzone za pomoca globalnego licznika. Kazdy watek w swojej
+    sekcji krytycznej pobiera wartosc licznika, zwieksza ja o 1 i zapisuje
+    do zmiennej licznika.
+    Program sklada sie z dwoch modulow:
+    1) main.c - program implementujacy wzajemne wykluczanie
+    2) obsluga_watkow - plik naglowkowy i zrodlowy w ktorym znajduja sie funkcje do obslugi watkow
+
+------------------------------------------------------------------------
+
+* Jak uruchomic programy:
+=========================
+
+Katalog zawiera program Makefile do kompilacji, linkowania
+i uruchamiania powyzszych programow, a takze czyszczenia katalogu 
+i jego archiwizacji.
+
+-> Aby uruchomic program, nalezy wykonac komende:
+       make run1
+
+-> Aby wyczyscic zawartosc katalogu (usunac zbedne pliki), nalezy wykonac:
+       make clean
+
+-> W celu archiwizacji oraz kompresji katalogu nalezy wykonac:
+       make tar
+
+========================================================================

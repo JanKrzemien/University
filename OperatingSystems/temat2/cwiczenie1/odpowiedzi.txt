@@ -1,0 +1,37 @@
+podpunkt c:
+proces adoptujacy osierocone procesy: systemd, pid = 1
+
+podpunkt d:
+identyfikatory procesu macierzystego:
+UID = 30437 | GID = 10000 | PID = 30468 | PPID = 30457 | PGID = 30457
+------------------------------
+pokolenie 1 | UID = 30437 | GID = 10000 | PID = 30468 | PPID = 30457 | PGID = 30457
+pokolenie 1 | UID = 30437 | GID = 10000 | PID = 30469 | PPID = 30468 | PGID = 30457
+pokolenie 2 | UID = 30437 | GID = 10000 | PID = 30468 | PPID = 30457 | PGID = 30457
+pokolenie 2 | UID = 30437 | GID = 10000 | PID = 30469 | PPID = 30468 | PGID = 30457
+pokolenie 2 | UID = 30437 | GID = 10000 | PID = 30470 | PPID = 30468 | PGID = 30457
+pokolenie 2 | UID = 30437 | GID = 10000 | PID = 30471 | PPID = 30469 | PGID = 30457
+pokolenie 3 | UID = 30437 | GID = 10000 | PID = 30469 | PPID = 30468 | PGID = 30457
+pokolenie 3 | UID = 30437 | GID = 10000 | PID = 30468 | PPID = 30457 | PGID = 30457
+pokolenie 3 | UID = 30437 | GID = 10000 | PID = 30470 | PPID = 30468 | PGID = 30457
+pokolenie 3 | UID = 30437 | GID = 10000 | PID = 30471 | PPID = 30469 | PGID = 30457
+pokolenie 3 | UID = 30437 | GID = 10000 | PID = 30475 | PPID = 30468 | PGID = 30457
+pokolenie 3 | UID = 30437 | GID = 10000 | PID = 30476 | PPID = 30470 | PGID = 30457
+pokolenie 3 | UID = 30437 | GID = 10000 | PID = 30477 | PPID = 30471 | PGID = 30457
+pokolenie 3 | UID = 30437 | GID = 10000 | PID = 30474 | PPID = 30469 | PGID = 30457
+
+
+
+                                                                      (30468, 30457, 30457)
+                                                            |                                      |
+                                            (30468,30457,30457)                                    (30469,30468,30457)
+                                    |                         |                                       |                                            |
+                            (30468,30457,30457)             (30470,30468,30457)             (30469,30468,30457)                                 (30471,30469,30457)
+                        |                 |                  |                 |                       |                 |                        |                |
+        (30468,30457,30457)    (30475,30468,30457)  (30470,30468,30457)   (30476,30470,30457)  (30469,30468,30457)  (30474,30469,30457)   (30471,30471,30457)  (30477,30471,30457)
+
+
+podpunkt e:
+po wywolaniu funkcji fork proces dzieli sie na dwa identyczne. Po kolejnym wywolaniu tej funkcji poniewaz te dwa procesy sa identyczne
+funkcja fork wywoluje sie w obu tak samo, wykonuj¹ te same instrukcje. Stad przy wywolaniu fork n razy po kazdym wywolaniu ilosc procesow zwiekszy sie
+razy dwa. Wszystkich procesow bedzie (2 do potegi n - 1) procesow stworzonych w wyniku funkcji fork, plus 1 proces macierzysty, wiec razem 2 do potegi n.

@@ -1,0 +1,67 @@
+// pseudokod rozwiazania dla wielu producentow i wielu konsumentow
+
+#define N ?
+#define M ?
+
+// struktura bufora cyklicznego
+struct SegmentPD
+{
+    char bufor[N][M];
+    int wyjmij, wstaw;
+}
+
+semaphore ProdSynch = 1;        // synchronizacja procesow producenta zeby do danych w sekcji krytycznej dostep mial tylko jeden proces naraz
+semaphore KonsSynch = 1;        // synchronizacja procesow konsumenta
+semaphore PracaNadTowarem = N;  // semafor ktory podnosi kazdy proces producenta przy pracy nad towarem
+				// a opuszcza proces konsumenta gdy konczy z tym towarem pracowac
+				// co jest zabezpieczeniem przed nadpisywaniem danych ktore nie zostaly jeszcze odczytane z bufora
+semaphore PelnyBufor = N;	// semafor sygnalizujacy ze cos znajduje sie w buforze
+
+PelnyBufor = 0; 		// opusc semafor PelnyBufor az jego wartosc bedzie rowna 0
+				// stworzy to cos na ksztalt licznika ile towaru zostalo wprowadzone do bufora
+				// wazne jest tylko czy ta wartosc jest wieksza od zera
+
+
+struct SegmentPD * pd;		// wskaznik do pamieci dzielonej wykorzystywany przez procesy producenta i konsumenta
+
+// wartosci poczatkowe
+pd->wstaw = 0;
+pd->wyjmij = 0;
+
+// ==========================
+// pseudokod producentow
+// ==========================
+
+char bufor[M];	// tymczasowy bufor na wyprodukowane dane
+
+while(1)
+{
+    // produkcja towaru
+
+    PB(PracaNadTowarem)		     // opuszczenie semafora PracaNadTowarem
+    PB(ProdSynch)		     // opuszczenie semafora ProdSynch
+    pd->bufor[pd->wstaw] = bufor     // zapisanie danych z bufora w buforze cyklicznym w pamięci dzielonej
+    pd->wstaw = (pd->wstaw + 1) % N  // przesuniecie pozycji wstawiania o 1 dalej
+    VB(ProdSynch)	  	     // podniesienie semafora ProdSynch
+    VB(PelnyBufor)		     // zapisano w pamieci dzielonej dane, podniesienie semafora PelnyBufor
+
+}
+
+// ==========================
+// pseudokod klienta
+// ==========================
+
+char bufor[M];  // tymczasowy bufor na odczytane z pamieci dane
+
+while(1)
+{
+    PB(PelnyBufor);		       // jesli w pamieci dzielonej sa dane do odczytania, podniesienie semafora PelnyBufor
+    PB(KonsSynch);		       // podniesienie semafora KonsSynch
+    bufor = pd->bufor[pd->wstaw]       // odczytanie danych z bufora cyklicznego
+    pd->wyjmij = (pd->wyjmij + 1) % N; // przesuniecie pozycji wyjmowania o 1 dalej
+    VB(KonsSynch);		       // podniesienie semafora KonsSynch
+    VB(PracaNadTowarem);               // podniesienie semafora PracaNadTowarem
+
+    // konsumowanie danych
+}
+

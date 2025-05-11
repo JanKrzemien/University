@@ -1,0 +1,73 @@
+========================================================================
+Autor: Jan Krzemień,                               Krakow, 05.04.2023
+========================================================================
+
+* Zawartosc:
+============
+
+Katalog programy zawiera trzy programy bedace rozwiazaniami cwiczenia 3:
+--------------------------------------------------------------------
+
+I.  Program w zależności od podanego przez argumenty wywołania programu znaku
+    odpowiednio obsługuje sygnał, również podany przez argument wywołania funkcji.
+    Program sklada sie z dwoch modulow: 
+    1) cw3a.c  - program glowny.
+    2) funkcjaWypiszID.c, funkcje.h - funkcja wypisujaca identyfikatory procesu.
+II. Program poprzez funkcję execlp uruchamia program i przekazuje mu jako
+    argument wywołania funkcji numer sygnału i jak ma zareagować na dany sygnał.
+    Następnie sprawdza czy proces potomny istnieje i wysyła do procesu potomnego sygnał.
+    Program czeka na zakończenie procesu potomnego, jeśli został zakończony przez sygnał
+    wypisuje numer sygnału i jego nazwe.
+    Program sklada sie z trzech modulow:
+    1) cw3b.c  - program glowny.
+    2) cw3a.c  - program uruchamiany w procesie potomnym
+    3) funkcjaWypiszID.c, funkcje.h - funkcja wypisujaca identyfikatory procesu.
+III.Program tworzy proces potomny, ustawia go liderem swojej własnej grupy.
+    Poprzez funkcję execlp uruchamia program i przekazuje mu jako
+    argument wywołania funkcji nazwę programu do uruchomienia,
+    numer sygnału i jak ma zareagować na dany sygnał.
+    Następnie czeka na zakończenie procesu potomnego.
+    Program sklada sie z czterech modulow:
+    1) cw3c.c  - program glowny.
+    2) cw3cProgramLiderGrupy.c - program uruchamiany w procesie potomnym programu cw3c.c
+    3) cw3a.c  - program uruchamiany w procesach potomnych programu cw3cProgramLiderGrupy.c
+    4) funkcjaWypiszID.c, funkcje.h - funkcja wypisujaca identyfikatory procesu
+ 
+
+------------------------------------------------------------------------
+
+* Jak uruchomic programy:
+=========================
+
+Katalog zawiera program Makefile do kompilacji, linkowania
+i uruchamiania powyzszych programow, a takze czyszczenia katalogu 
+i jego archiwizacji.
+
+-> Aby uruchomic pierwszy program z domyslna reakcja na sygnal 2, nalezy wykonac komende:
+       make run1Def
+-> Aby uruchomic pierwszy program z ignorowaniem sygnalu 2, nalezy wykonac komende:
+       make run1Ign
+-> Aby uruchomic pierwszy program ze zmieniona reackja na sygnal 2, nalezy wykonac komende:
+       make run1Custom
+
+-> Aby uruchomic drugi program z domyslna reakcja na sygnal 2, nalezy wykonac komende:
+       make run2Def
+-> Aby uruchomic drugi program z ignorowaniem sygnalu 2, nalezy wykonac komende:
+       make run2Ign
+-> Aby uruchomic drugi program ze zmieniona reakcja na sygnal 2, nalezy wykonac komende:
+       make run2Custom
+
+-> Aby uruchomic trzeci program z domyslna reakcja na sygnal 2, nalezy wykonac komende:
+       make run3Def
+-> Aby uruchomic trzeci program z ignorowaniem sygnalu 2, nalezy wykonac komende:
+       make run3Ign
+-> Aby uruchomic trzeci program ze zmieniona reakcja na sygnal 2, nalezy wykonac komende:
+       make run3Custom
+
+-> Aby wyczyscic zawartosc katalogu (usunac zbedne pliki), nalezy wykonac:
+       make clean
+
+-> W celu archiwizacji oraz kompresji katalogu nalezy wykonac:
+       make tar
+
+========================================================================

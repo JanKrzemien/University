@@ -1,0 +1,5 @@
+Powstanie n procesow poniewaz przy kazdym uzyciu funkcji fork
+jest tworzona idealna kopia procesu macierzystego
+ale nastepnie proces potomny jest ponownie zainicjowany na podstawie wskazanego programu
+przez co nie majac juz tego samego kodu programu co proces macierzysty nie wywoluje ponownie
+funkcji fork, jest wiec tyle procesow co wywolan funkcji fork

@@ -1,0 +1,39 @@
+========================================================================
+Autor: Jan Krzemień,                               Krakow, 07.06.2023
+========================================================================
+
+* Zawartosc:
+============
+
+Katalog programy zawiera program bedacy rozwiazaniem cwiczenia 8:
+--------------------------------------------------------------------
+
+I.  Program rozwiazuje nadeslane przez klientow dzialania matematyczne
+    i zwraca odpowiedz. Program serwer.c pelni role demona, nazwa jego kolejki
+    jest jawna, oczekuje na komunikaty i odsyla odpowiedz. Program klient.c
+    czeka az uzytkownik poda dzialanie arytmetyczne do wykonania,
+    nastepnie wysyla je do serwera i czeka na odpowiedz ktora wyswietla.
+    Program sklada sie z trzech modulow:
+    1) serwer.c - odbiera dzialania arytmetyczne od klientow i odsyla rozwiazanie
+    2) klient.c - wysyla dzialania wprowadzone przez uzytkownika do serwera i wypisuje zwrocona odpowiedz
+    3) obsluga_kolejek.c - funkcje sluzace do obslugi kolejek
+
+------------------------------------------------------------------------
+
+* Jak uruchomic programy:
+=========================
+
+Katalog zawiera program Makefile do kompilacji, linkowania
+i uruchamiania powyzszych programow, a takze czyszczenia katalogu 
+i jego archiwizacji.
+
+-> Aby uruchomic program, nalezy wykonac komende:
+       make run1
+
+-> Aby wyczyscic zawartosc katalogu (usunac zbedne pliki), nalezy wykonac:
+       make clean
+
+-> W celu archiwizacji oraz kompresji katalogu nalezy wykonac:
+       make tar
+
+========================================================================

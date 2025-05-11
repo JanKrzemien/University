@@ -1,0 +1,46 @@
+========================================================================
+Autor: Jan Krzemień,                               Krakow, 27.05.2023
+========================================================================
+
+* Zawartosc:
+============
+
+Katalog programy zawiera program bedacy rozwiazaniem cwiczenia 7:
+--------------------------------------------------------------------
+
+I.  Program main.c tworzy pamiec dzielona, semafory, dwa procesy potomne w ktorych
+    uruchamia programy producenta i konsumenta. Producent pobiera porcje bajtow z
+    z pliku dane.txt i zapisuje je w buforze cyklicznym w pamieci podrecznej.
+    Konsument odczytuje dane porcjami z bufora cyklicznego w pamieci podrecznej
+    i zapisuje je w pliku wynik.txt
+    Program sklada sie z modulow:
+    1) powielacz.c - program tworzacy pamiec dzielona, semafory, procesy producenta i klienta
+    2) producent.c - program odczytujacy porcjami dane z pliku i zapisuje je w pamieci dzielonej
+    3) konsument.c - program odczytujacy porcjami dane z pamieci dzielonej i zapisujacy je w pliku
+    4) obsluga_pamieci.h, obsluga_pamieci.c - modul zawierajacy funkcje sluzace do obslugi pamieci dzielonej
+    5) obsluga_semaforow.h, obsluga_semaforow.c - modul zawierajacy funkcje sluzace do obslugi semaforow
+    6) dane.txt, wynik.txt - plik z danymi i plik w ktorym zapisywany jest wynik
+
+------------------------------------------------------------------------
+
+* Jak uruchomic programy:
+=========================
+
+Katalog zawiera program Makefile do kompilacji, linkowania
+i uruchamiania powyzszych programow, a takze czyszczenia katalogu 
+i jego archiwizacji. Program mozna uruchomic na 3 sposoby:
+
+-> Aby uruchomic program z dolaczona biblioteka statyczna, nalezy wykonac komende:
+       make run1s
+-> Aby uruchomic program z dolaczona biblioteka dzielona (wersja 1) nalezy wykonac komende:
+       make run1d1
+-> Aby uruchomic program z dolaczona biblioteka dzielona (wersja 1) nalezy wykonac komende:
+       make run1d2
+
+-> Aby wyczyscic zawartosc katalogu (usunac zbedne pliki), nalezy wykonac:
+       make clean
+
+-> W celu archiwizacji oraz kompresji katalogu nalezy wykonac:
+       make tar
+
+========================================================================

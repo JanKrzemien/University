@@ -1,0 +1,41 @@
+========================================================================
+Autor: Jan Krzemień,                               Krakow, 26.04.2023
+========================================================================
+
+* Zawartosc:
+============
+
+Katalog programy zawiera dwa programy bedace rozwiazaniem cwiczenia 5:
+--------------------------------------------------------------------
+
+I.  Program main tworzy 2 procesy potomne, jeden pobiera z pliku dane równymi porcjami,
+    zapisuje je w potoku nazwanym, jednocześnie drugi proces potomny próbuje odczytać
+    z potoku dane i zapisać je w pliku.
+    Program sklada sie z czterech modulow:
+    1) main.c - program tworzacy dwa procesy potomne, znajduje sie tam funkcja atexit 
+    1) producent.c  - program odczytuje dane z pliku i zapisuje w potoku.
+    2) konsument.c - program odczytuje dane z potoku i zapisuje w pliku.
+    3) dane.txt, wynik.txt - plik z danymi oraz plik do zapisu danych z potoku
+
+------------------------------------------------------------------------
+
+* Jak uruchomic programy:
+=========================
+
+Katalog zawiera program Makefile do kompilacji, linkowania
+i uruchamiania powyzszych programow, a takze czyszczenia katalogu 
+i jego archiwizacji.
+
+-> Aby uruchomic program z podpunktu a, nalezy wykonac komende:
+       make run1
+
+-> Aby uruchomic program z podpunktu b, nalezy wykonac komende:
+       make run2
+
+-> Aby wyczyscic zawartosc katalogu (usunac zbedne pliki), nalezy wykonac:
+       make clean
+
+-> W celu archiwizacji oraz kompresji katalogu nalezy wykonac:
+       make tar
+
+========================================================================

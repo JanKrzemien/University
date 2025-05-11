@@ -1,0 +1,36 @@
+========================================================================
+Autor: Jan Krzemień,                               Krakow, 14.04.2023
+========================================================================
+
+* Zawartosc:
+============
+
+Katalog programy zawiera dwa programy bedace rozwiazaniem cwiczenia 4:
+--------------------------------------------------------------------
+
+I.  Program pobiera z pliku dane równymi porcjami, zapisuje je w potoku nienazwanym,
+    jednocześnie proces potomny pobiera dane z potoku i zapisuje do pliku.
+    Program sklada sie z dwoch modulow: 
+    1) main.c  - program tworzy proces potomny odczytuje dane z pliku i zapisuje w potoku,
+                 proces potomny odczytuje z potoku i zapisuje do pliku.
+    3) dane.txt, wynik.txt - plik z danymi oraz plik do zapisu danych z potoku
+
+------------------------------------------------------------------------
+
+* Jak uruchomic programy:
+=========================
+
+Katalog zawiera program Makefile do kompilacji, linkowania
+i uruchamiania powyzszych programow, a takze czyszczenia katalogu 
+i jego archiwizacji.
+
+-> Aby uruchomic program, nalezy wykonac komende:
+       make run1
+
+-> Aby wyczyscic zawartosc katalogu (usunac zbedne pliki), nalezy wykonac:
+       make clean
+
+-> W celu archiwizacji oraz kompresji katalogu nalezy wykonac:
+       make tar
+
+========================================================================

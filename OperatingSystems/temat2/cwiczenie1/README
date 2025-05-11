@@ -1,0 +1,83 @@
+========================================================================
+Autor: Jan Krzemień,                               Krakow, 17.03.2023
+========================================================================
+
+* Zawartosc:
+============
+
+Katalog programy zawiera piec programow bedacych rozwiazaniami cwiczenia 1:
+--------------------------------------------------------------------
+
+I.  Program wypisujacy identyfikatory UID, GID, PID, PPID, PGID
+    dla danego procesu.
+    Program sklada sie z dwoch modulow: 
+    1) cw1a.c  - program glowny.
+    2) funkcjaWypiszID.c, funkcje.h - funkcja wypisujaca identyfikatory procesu. 
+
+II. Program wywołuje trzy razy w pętli funkcje fork i wypisuje
+    identyfikatory UID, GID, PID, PPID, PGID procesu macierzystego oraz
+    wszystkich procesów potomnych. Sprawia że proces macierzysty czeka
+    na zakończenie procesów potomnych
+    Program sklada sie z dwoch modulow:    
+    1) cw1b.c  - program glowny.
+    2) funkcjaWypiszID.c, funkcje.h - funkcja wypisujaca identyfikatory procesu. 
+
+III.Program wywołuje trzy razy w pętli funkcje fork i podczas ostatniej
+    iteracji pętli usypia procesy potomne przez co proces macierzysty się
+    kończy a procesy potomne stają się zombie i są adoptowane
+    Program sklada sie z dwoch modulow:    
+    1) cw1c.c  - program glowny.
+    2) funkcjaWypiszID.c, funkcje.h - funkcja wypisujaca identyfikatory procesu. 
+
+IV. Program wywołuje trzy razy w pętli funkcje fork, podczas każdej iteracji
+    wypisuje identyfikatory procesów dla danego pokolenia, następnie usypia je
+    na sekudne, w ostatniej iteracji procesy macierzyste są uśpione o pół sekundy
+    dłużej dla pewności że skończą się po procesach potomnych
+    Program sklada sie z dwoch modulow:
+    1) cw1d.c  - program glowny.
+    2) funkcjaWypiszID.c, funkcje.h - funkcja wypisujaca identyfikatory procesu. 
+
+V.  Program wywołuje trzy razy w pętli funkcje fork, podczas każdej iteracji
+    procesy potomne stają się liderami swoich własnych grup a proces macierzysty
+    czeka na ich zakończenie.
+    Program sklada sie z dwoch modulow:    
+    1) cw1e.c  - program glowny.
+    2) funkcjaWypiszID.c, funkcje.h - funkcja wypisujaca identyfikatory procesu. 
+
+------------------------------------------------------------------------
+
+* Jak uruchomic programy:
+=========================
+
+Katalog zawiera program Makefile do kompilacji, linkowania
+i uruchamiania powyzszych programow, a takze czyszczenia katalogu 
+i jego archiwizacji.
+
+-> Aby skompilowac wszystkie programy i utworzyc biblioteke statyczna, nalezy wylonac komende:
+       make all
+
+-> Aby uruchomic pierwszy program, nalezy wykonac komende:
+       make run1
+
+-> Aby uruchomic drugi program, nalezy wykonac komende:
+       make run2
+
+-> Aby uruchomic trzeci program, nalezy wykonac komende:
+       make run3
+
+-> Aby uruchomic czwarty program, nalezy wykonac komende:
+       make run4
+
+-> Aby uruchomic piaty program, nalezy wykonac komende:
+       make run5
+
+-> Aby wyczyscic zawartosc katalogu (usunac zbedne pliki), nalezy wykonac:
+       make clean
+
+-> W celu archiwizacji oraz kompresji katalogu nalezy wykonac:
+       make tar
+
+========================================================================
+
+
+

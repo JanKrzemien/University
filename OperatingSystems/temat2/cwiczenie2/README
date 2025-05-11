@@ -1,0 +1,38 @@
+========================================================================
+Autor: Jan Krzemień,                               Krakow, 24.03.2023
+========================================================================
+
+* Zawartosc:
+============
+
+Katalog programy zawiera program bedacy rozwiazaniem cwiczenia 2:
+--------------------------------------------------------------------
+
+I.  Przez argumenty programu przekazywana jest nazwa pliku wykonywalnego do inicjowania w procesach.
+    Program wywołuje trzy razy w pętli funkcje fork, podczas każdej iteracji.
+    W procesie potomnym inicjowany jest nowy program, do inicjowanego programu przekazywana
+    jest za pomocą argumentów programu informacja o numerze iteracji w której został zainicjowany
+    Program sklada sie z trzech modulow: 
+    1) cw2.c  - program glowny.
+    2) funkcjaWypiszID.c, funkcje.h - funkcja wypisujaca identyfikatory procesu.
+    3) programDoWywolania.c - program wywolywany w procesie potomnym po uzyciu funkcji fork
+
+------------------------------------------------------------------------
+
+* Jak uruchomic programy:
+=========================
+
+Katalog zawiera program Makefile do kompilacji, linkowania
+i uruchamiania powyzszych programow, a takze czyszczenia katalogu 
+i jego archiwizacji.
+
+-> Aby uruchomic pierwszy program, nalezy wykonac komende:
+       make run1
+
+-> Aby wyczyscic zawartosc katalogu (usunac zbedne pliki), nalezy wykonac:
+       make clean
+
+-> W celu archiwizacji oraz kompresji katalogu nalezy wykonac:
+       make tar
+
+========================================================================
