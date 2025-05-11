@@ -1,0 +1,17 @@
+Bogumila, 33
+Dagmara, 20
+Daria, 10
+Edward, 15
+Edward, 15
+Irena, 14
+Jakub, 56
+Jan, 22
+Julia, 12
+Krzysztof, 21
+Krzysztof, 31
+Mariusz, 17
+Mariusz, 18
+Mateusz, 24
+Paulina, 55
+Pawel, 15
+Pawel, 29
